@@ -1,0 +1,31 @@
+#pragma once
+#include "MyTypes.h"
+#include <iostream>
+
+using namespace std;
+
+class Account
+{
+private:
+	int accountNumber; //a
+	int balance;       //b  
+	int code;          //c
+	static int sumWithdraw;
+	static int sumDeposit;
+public:
+
+	Account(int a = 0, int b = 0, int c = 0);
+	~Account();
+	void setAccountNumber(int);
+	void setBalance(int);
+	void setCode(int);
+	int getAccountNumber();
+	int getBalance();
+	int getCode();
+	friend istream &operator >> (istream & incoming, Account &);
+	void deposit(int am);
+	void withdraw(int am);
+	static int getSumWithdraw();
+	static int getSumDeposit();
+
+}
